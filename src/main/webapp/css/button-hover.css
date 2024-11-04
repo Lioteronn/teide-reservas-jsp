@@ -1,0 +1,27 @@
+.a__link {
+    color: #ffffff;
+    line-height: 2;
+    position: relative;
+    font-weight: bold;
+}
+
+.a__link:hover {
+    color: #ffd733;
+}
+
+.a__link::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #ffd733;
+    position: absolute;
+    bottom: -.25rem;
+    right: 0;
+    transition: right .4s, width .4s, left .4s;
+}
+
+.a__link:hover::before {
+    width: 100%;
+    left: 0;
+}
