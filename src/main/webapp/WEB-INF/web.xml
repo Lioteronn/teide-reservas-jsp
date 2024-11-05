@@ -35,7 +35,7 @@
 
     <servlet>
             <servlet-name>FlightSearchServlet</servlet-name>
-            <servlet-class>com.example.teidereservas.FlightSearchServlet</servlet-class>
+            <servlet-class>com.example.teidereservas.flights.FlightSearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
             <servlet-name>FlightSearchServlet</servlet-name>

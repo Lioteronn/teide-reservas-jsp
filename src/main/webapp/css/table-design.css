@@ -1,0 +1,131 @@
+.shopping-cart-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    color: #0c3154;
+    font-family: "Nunito", sans-serif;
+}
+
+.shopping-cart-header img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.cart-wrapper {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    background-color: #d8f0fb;
+    border-radius: 15px;
+    padding: 2rem;
+    transition: display 0.7s;
+}
+
+/* Shopping cart container style */
+.shopping-cart {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+}
+
+/* General Table Style */
+.cart-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid #003087;
+    overflow: hidden;
+}
+
+/* Header Row */
+.cart-header {
+    background-color: #003087; /* Ryanair blue */
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    padding: 8px;
+}
+
+.cart-header .cart-cell {
+    padding: 12px;
+    border-bottom: 2px solid #ffd400; /* Ryanair yellow */
+}
+
+/* Data Rows */
+.cart-row {
+    background-color: #f7f9fc;
+    transition: background-color 0.3s;
+}
+
+.cart-row:hover {
+    background-color: #e6effe; /* Light blue hover effect */
+}
+
+.cart-row:nth-child(even) {
+    background-color: #f1f5fc; /* Slightly darker shade for even rows */
+}
+
+.cart-row:nth-child(even):hover {
+    background-color: #d8e2f6; /* Slightly darker shade for even rows on hover */
+}
+
+.cart-row .cart-cell {
+    padding: 12px;
+    border-bottom: 1px solid #dfe3e8;
+}
+
+/* Cart Cell */
+.cart-cell {
+    text-align: left;
+    vertical-align: middle;
+}
+
+/* Optional Styling for Specific Columns (e.g., price or quantity) */
+.cart-cell.quantity,
+.cart-cell.price {
+    text-align: right;
+}
+
+/* Rounded Borders for Table */
+.cart-table {
+    border-radius: 8px; /* Round all corners */
+}
+
+.cart-header .cart-cell:first-child {
+    border-top-left-radius: 8px;
+}
+
+.cart-header .cart-cell:last-child {
+    border-top-right-radius: 8px;
+}
+
+.cart-row:last-child .cart-cell:first-child {
+    border-bottom-left-radius: 8px;
+}
+
+.cart-row:last-child .cart-cell:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+.cart-checkout-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-top: 1px solid #003087;
+    font-family: Nunito, sans-serif;
+    font-size: 16px;
+    color: #0c3154;
+}

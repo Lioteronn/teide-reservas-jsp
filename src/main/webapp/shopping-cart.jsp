@@ -20,9 +20,15 @@
 <%
     String username = (String) request.getSession().getAttribute("username");
     ArrayList<Flight> reservations;
+    int totalPrice = 0;
 
     if (!ReservationManager.getReservationsMap().isEmpty() && username != null) {
         reservations = new ArrayList<>(FlightsDAO.getFlightsByIds(ReservationManager.getReservationsMap().get(username)));
+
+        for (Flight flight : reservations) {
+            totalPrice += flight.getPrice();
+        }
+
         System.out.println(reservations);
         request.setAttribute("reservations", reservations);
     } else {
@@ -57,6 +63,12 @@
             </tr>
         </c:forEach>
     </table>
+    <div class="cart-checkout-container">
+        <h3>Total: <%=totalPrice%> €</h3>
+        <form action="CheckoutServlet">
+            <button type="submit">PAGAR RESERVA</button>
+        </form>
+    </div>
 </div>
 
 </body>

@@ -1,4 +1,4 @@
-<%@ page import="com.example.teidereservas.Flight" %>
+<%@ page import="com.example.teidereservas.flights.Flight" %>
 <%@ page import="com.example.teidereservas.db.FlightsDAO" %><%--
   Created by IntelliJ IDEA.
   User: alex3
@@ -48,11 +48,14 @@
         }
 
         String flightClass = request.getParameter("class");
+        if (flightClass == null || flightClass.isEmpty()) {
+            flightClass = "";
+        }
 
         ArrayList<Flight> flights;
 
-        if (departureDate.isEmpty() && returnDate.isEmpty()) {
-            flights =  FlightsDAO.getFlightsWithoutDatesAndPassengers(from, to, flightClass);
+        if (departureDate.isEmpty() && returnDate.isEmpty() && passengers == 0 && flightClass.isEmpty()) {
+            flights =  FlightsDAO.getAlternativeFlights(from, to);
         } else {
             flights =  FlightsDAO.getFlights(from, to, departureDate, returnDate, passengers, flightClass);
         }
@@ -77,7 +80,10 @@
                         <p class="flight-p-price">${flight.price} €</p>
                         <p class="flight-p">Ida y vuelta</p>
                     </div>
-                    <button type="button">Reservar</button>
+                    <form action="BookFlightServlet" method="post">
+                        <input type="hidden" name="flightId" value="${flight.id}">
+                        <button type="submit">RESERVAR</button>
+                    </form>
                 </div>
             </c:forEach>
         </div>

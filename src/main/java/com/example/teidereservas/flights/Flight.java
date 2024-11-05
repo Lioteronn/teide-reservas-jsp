@@ -1,4 +1,4 @@
-package com.example.teidereservas;
+package com.example.teidereservas.flights;
 
 public class Flight {
 

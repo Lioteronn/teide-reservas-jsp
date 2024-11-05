@@ -6,11 +6,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Vuelos</title>
+    <title>Teide Reservas</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/error-css.css">
     <link rel="stylesheet" href="./css/button-hover.css">
     <link rel="stylesheet" href="./css/register-styles.css">
+    <link rel="stylesheet" href="./css/table-design.css">
 </head>
 <body>
 <header>
@@ -19,7 +20,7 @@
         <ul>
             <li><a href="index.jsp" class="a__link">Inicio</a></li>
             <li><a href="" class="a__link">Soporte</a></li>
-            <li id="last-nav-item"><a href="" class="a__link">Mis reservas</a></li>
+            <li id="last-nav-item"><a href="shopping-cart.jsp" class="a__link">Mis reservas</a></li>
             <li>
                 <button onclick="toggleJSP('login')">Iniciar sesión</button>
             </li>
@@ -48,7 +49,7 @@
                 <div class="passengers-class-wrapper">
                     <input type="text" id="passengers" name="passengers" min="1" max="10" placeholder="Pasajeros">
 
-                    <select id="class" name="class" required>
+                    <select id="class" name="class">
                         <option value="" disabled selected>Clase</option>
                         <option value="economy">Economica</option>
                         <option value="business">Negocios</option>
@@ -80,8 +81,11 @@
 
         <%if (request.getSession().getAttribute("username") != null) {%>
         <section class="user-profile">
-            <h2>Bienvenido/a, <%=request.getSession().getAttribute("username")%>
-            </h2>
+            <div class="profile-header">
+                <h2>Bienvenido/a, <%=request.getSession().getAttribute("username")%>
+                </h2>
+                <img class="shopping-cart-button" src="./css/assets/shopping-cart.png" alt="">
+            </div>
             <form action="LogoutServlet" method="get">
                 <button type="submit">CERRAR SESIÓN</button>
             </form>
@@ -111,11 +115,16 @@
 </div>
 <%}%>
 
+<div class="cart-wrapper" style="display: none;">
+    <jsp:include page="shopping-cart.jsp"/>
+</div>
+
 <footer>
     <p>&copy; 2024 Reserva de Vuelos. Todos los derechos reservados.</p>
 </footer>
 
 <script src="./js/error-close.js"></script>
 <script src="./js/toggle-login-register.js"></script>
+<script src="./js/shopping-cart.js"></script>
 </body>
 </html>

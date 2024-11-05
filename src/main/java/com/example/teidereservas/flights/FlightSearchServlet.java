@@ -1,9 +1,7 @@
-package com.example.teidereservas;
+package com.example.teidereservas.flights;
 
 import java.io.*;
-import java.util.ArrayList;
 
-import com.example.teidereservas.db.FlightsDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
