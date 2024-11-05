@@ -2,6 +2,7 @@ package com.example.teidereservas;
 
 public class Flight {
 
+    private int id;
     private String from;
     private String to;
     private String departureDate;
@@ -12,7 +13,8 @@ public class Flight {
     private String flightClass;
     private double price;
 
-    public Flight(String from, String to, String departureDate, String departureTime, String returnDate, String returnTime, int passengers, String flightClass, double price) {
+    public Flight(int id, String from, String to, String departureDate, String departureTime, String returnDate, String returnTime, int passengers, String flightClass, double price) {
+        this.id = id;
         this.from = from;
         this.to = to;
         this.departureDate = departureDate;
@@ -22,6 +24,10 @@ public class Flight {
         this.passengers = passengers;
         this.flightClass = flightClass;
         this.price = price;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getFrom() {
